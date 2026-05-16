@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portföy | Ajans Kivi</title>
+  <link rel="stylesheet" href="./style.css">
+  <style>
+    .portfolio-page { padding-top: 100px; min-height: 100vh; }
+    .filter-wrap { display: flex; justify-content: center; gap: 1rem; margin-bottom: 3rem; flex-wrap: wrap; }
+    .filter-btn { 
+      background: none; border: 1px solid var(--border); color: #fff; padding: 10px 20px; 
+      border-radius: 30px; cursor: pointer; transition: 0.3s; font-size: 0.9rem;
+    }
+    .filter-btn.active, .filter-btn:hover { background: var(--brand); border-color: var(--brand); color: #000; font-weight: bold; }
+    
+    .gallery-grid { 
+      display: grid; 
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); 
+      gap: 1.5rem; 
+    }
+    .gallery-item { 
+      position: relative; border-radius: 12px; overflow: hidden; aspect-ratio: 4/5; 
+      background: var(--bg-soft); transition: 0.5s;
+    }
+    .gallery-item.hidden { display: none; }
+    .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
+    .gallery-item:hover img { transform: scale(1.1); }
+    .gallery-overlay { 
+      position: absolute; inset: 0; background: linear-gradient(transparent, rgba(0,0,0,0.8)); 
+      display: flex; flex-direction: column; justify-content: flex-end; padding: 1.5rem;
+      opacity: 0; transition: 0.3s;
+    }
+    .gallery-item:hover .gallery-overlay { opacity: 1; }
+    .gallery-overlay h4 { font-size: 1.2rem; margin-bottom: 0.5rem; }
+    .gallery-overlay span { color: var(--brand); font-size: 0.8rem; text-transform: uppercase; }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav id="navbar" class="scrolled">
+    <div class="container nav-content">
+      <a href="index.html" class="logo">
+        <img src="images/logos/logo_white_text.png" alt="Ajans Kivi Logo" style="height: 32px; width: auto; display: block;">
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html#services">Hizmetler</a></li>
+        <li><a href="portfolio.html" class="active">Portföy</a></li>
+        <li><a href="index.html#contact" class="nav-cta">İletişim</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="portfolio-page container">
+    <div class="section-head" style="text-align: center; margin-bottom: 3rem;">
+      <span class="hero-tagline">Tüm Çalışmalarımız</span>
+      <h1 style="font-size: 3.5rem;">Görsel Galeri</h1>
+    </div>
+
+    <!-- FILTERS -->
+    <div class="filter-wrap">
+      <button class="filter-btn active" data-filter="all">Tümü</button>
+      <button class="filter-btn" data-filter="moda">Moda</button>
+      <button class="filter-btn" data-filter="urun">Ürün</button>
+      <button class="filter-btn" data-filter="kozmetik">Kozmetik</button>
+      <button class="filter-btn" data-filter="bts">Mutfak (BTS)</button>
+    </div>
+
+    <!-- GALLERY -->
+    <div class="gallery-grid" id="gallery">
+      <!-- Moda -->
+      <div class="gallery-item" data-category="moda">
+        <img src="images/portfolio/JG8A0148.jpg" alt="Moda">
+        <div class="gallery-overlay">
+          <span>Moda / Katalog</span>
+          <h4>La Gazz Koleksiyonu</h4>
+        </div>
+      </div>
+      <div class="gallery-item" data-category="moda">
+        <img src="images/portfolio/JG8A0155.jpg" alt="Moda">
+        <div class="gallery-overlay">
+          <span>Moda / Portre</span>
+          <h4>Stüdyo Serisi</h4>
+        </div>
+      </div>
+      <div class="gallery-item" data-category="moda">
+        <img src="images/portfolio/JG8A0158.jpg" alt="Moda">
+        <div class="gallery-overlay">
+          <span>Moda / Işık</span>
+          <h4>Gölge Oyunları</h4>
+        </div>
+      </div>
+      <div class="gallery-item" data-category="moda">
+        <img src="images/portfolio/fashion-portrait-bw.jpg" alt="Moda">
+        <div class="gallery-overlay">
+          <span>Moda / Siyah Beyaz</span>
+          <h4>Editoryal Çekim</h4>
+        </div>
+      </div>
+
+      <!-- Ürün -->
+      <div class="gallery-item" data-category="urun">
+        <img src="images/portfolio/longos-hero-shot.jpg" alt="Ürün">
+        <div class="gallery-overlay">
+          <span>Ürün / E-Ticaret</span>
+          <h4>Longos Aksesuar</h4>
+        </div>
+      </div>
+      <div class="gallery-item" data-category="urun">
+        <img src="images/portfolio/skincare-product-interaction.jpg" alt="Ürün">
+        <div class="gallery-overlay">
+          <span>Ürün / Detay</span>
+          <h4>Kozmetik Etkileşim</h4>
+        </div>
+      </div>
+
+      <!-- Kozmetik -->
+      <div class="gallery-item" data-category="kozmetik">
+        <img src="images/portfolio/skincare-serum-model.jpg" alt="Kozmetik">
+        <div class="gallery-overlay">
+          <span>Kozmetik / Model</span>
+          <h4>Cilt Bakım Serisi</h4>
+        </div>
+      </div>
+      <div class="gallery-item" data-category="kozmetik">
+        <img src="images/portfolio/beauty-portrait-bw.jpg" alt="Beauty">
+        <div class="gallery-overlay">
+          <span>Beauty / Yakın Plan</span>
+          <h4>Güzellik Çekimi</h4>
+        </div>
+      </div>
+
+      <!-- BTS -->
+      <div class="gallery-item" data-category="bts">
+        <img src="images/portfolio/JG8A0032.JPG" alt="BTS">
+        <div class="gallery-overlay">
+          <span>Mutfak / BTS</span>
+          <h4>Üretim Aşaması</h4>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer style="padding: 4rem 0; text-align: center; border-top: 1px solid var(--border); background: #000; margin-top: 5rem;">
+    <img src="images/logos/logo_white_text.png" alt="Ajans Kivi Logo" style="height: 48px; width: auto; display: block; margin: 0 auto 1.5rem;">
+    <p style="color: var(--text-muted); font-size: 0.8rem;">© 2024 AJANS KİVİ. Tüm Hakları Saklıdır.</p>
+  </footer>
+
+  <script>
+    // Simple Filtering Logic
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const items = document.querySelectorAll('.gallery-item');
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        // Remove active class from all
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        const filter = btn.getAttribute('data-filter');
+
+        items.forEach(item => {
+          if (filter === 'all' || item.getAttribute('data-category') === filter) {
+            item.classList.remove('hidden');
+          } else {
+            item.classList.add('hidden');
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>
