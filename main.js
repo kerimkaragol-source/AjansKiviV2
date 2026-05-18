@@ -108,46 +108,7 @@ document.addEventListener('DOMContentLoaded', () => {
     updateCalculator();
   }
 
-  // 6. CONTACT FORM (AJAX via FormSubmit)
-  const contactForm = document.getElementById('contactForm');
-  if (contactForm) {
-    contactForm.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const btn = contactForm.querySelector('button');
-      const originalText = btn.textContent;
-      
-      btn.textContent = 'Gönderiliyor...';
-      btn.disabled = true;
 
-      const formData = new FormData(contactForm);
-      const data = Object.fromEntries(formData);
-
-      try {
-        const response = await fetch('https://formsubmit.co/ajax/info@ajanskivi.com', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-          body: JSON.stringify(data)
-        });
-
-        if (response.ok) {
-          btn.textContent = '✓ Mesajınız Alındı';
-          btn.style.background = '#2ecc71';
-          contactForm.reset();
-        } else {
-          throw new Error();
-        }
-      } catch {
-        btn.textContent = '✕ Hata Oluştu';
-        btn.style.background = '#e74c3c';
-      }
-
-      setTimeout(() => {
-        btn.textContent = originalText;
-        btn.style.background = '';
-        btn.disabled = false;
-      }, 3000);
-    });
-  }
 
   // 7. SMOOTH SCROLL FOR LINKS
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
