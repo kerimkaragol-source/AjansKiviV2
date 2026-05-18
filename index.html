@@ -201,7 +201,8 @@
           </div>
         </div>
         <div class="reveal">
-          <form id="contactForm" name="contact" data-netlify="true" style="display: flex; flex-direction: column; gap: 1.5rem;">
+          <form id="contactForm" name="contact" method="POST" action="/" data-netlify="true" style="display: flex; flex-direction: column; gap: 1.5rem;">
+            <input type="hidden" name="form-name" value="contact" />
             <div class="input-group">
               <input type="text" name="name" placeholder="Ad Soyad" required style="background: var(--bg-soft); border: 1px solid var(--border); padding: 1rem; color: #fff; border-radius: 8px;">
             </div>
