@@ -108,7 +108,7 @@ document.addEventListener('DOMContentLoaded', () => {
     updateCalculator();
   }
 
-  // 6. CONTACT FORM (AJAX via Netlify Forms)
+  // 6. CONTACT FORM (AJAX via FormSubmit)
   const contactForm = document.getElementById('contactForm');
   if (contactForm) {
     contactForm.addEventListener('submit', async (e) => {
@@ -120,13 +120,13 @@ document.addEventListener('DOMContentLoaded', () => {
       btn.disabled = true;
 
       const formData = new FormData(contactForm);
-      formData.append('form-name', 'contact');
+      const data = Object.fromEntries(formData);
 
       try {
-        const response = await fetch('/', {
+        const response = await fetch('https://formsubmit.co/ajax/info@ajanskivi.com', {
           method: 'POST',
-          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-          body: new URLSearchParams(formData).toString()
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify(data)
         });
 
         if (response.ok) {
