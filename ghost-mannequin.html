@@ -226,18 +226,91 @@
       background: var(--bg-soft);
       border: 1px solid var(--border);
       transition: 0.4s;
+      position: relative;
+      display: flex;
+      flex-direction: column;
     }
 
-    .gallery-ghost-item img {
+    .ghost-slider {
+      position: relative;
+      flex-grow: 1;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    .ghost-slider .slides {
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+
+    .ghost-slider .slides img {
+      position: absolute;
+      top: 0;
+      left: 0;
       width: 100%;
       height: 100%;
       object-fit: cover;
-      display: block;
-      transition: 0.5s;
+      opacity: 0;
+      transition: opacity 0.5s ease-in-out;
+      z-index: 1;
     }
 
-    .gallery-ghost-item:hover img {
-      transform: scale(1.05);
+    .ghost-slider .slides img.active {
+      opacity: 1;
+      z-index: 2;
+    }
+
+    .slider-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0, 0, 0, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: #fff;
+      font-size: 1rem;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 10;
+      transition: 0.3s;
+      opacity: 0;
+    }
+
+    .gallery-ghost-item:hover .slider-btn {
+      opacity: 1;
+    }
+
+    .slider-btn:hover {
+      background: var(--brand);
+      color: #000;
+      border-color: var(--brand);
+    }
+
+    .slider-btn.prev {
+      left: 10px;
+    }
+
+    .slider-btn.next {
+      right: 10px;
+    }
+
+    .ghost-product-meta {
+      padding: 0.8rem;
+      background: #090909;
+      border-top: 1px solid var(--border);
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-weight: 500;
+      z-index: 5;
     }
 
     @media (max-width: 1024px) {
@@ -359,29 +432,283 @@
         </div>
         
         <div class="gallery-grid-ghost">
+          <!-- Ürün 1 -->
           <div class="gallery-ghost-item">
-            <img src="images/ghost_product_landing_page_images/JG8A3262.jpg" alt="Ghost Mannequin Ceket">
+            <div class="ghost-slider" id="slider-1">
+              <div class="slides">
+                <img src="images/ghost_product_landing_page_images/Yeni klasör/JG8A0863.jpg" class="active" alt="Ghost Mannequin Ürün 1 - 1">
+                <img src="images/ghost_product_landing_page_images/Yeni klasör/JG8A0864.jpg" alt="Ghost Mannequin Ürün 1 - 2">
+                <img src="images/ghost_product_landing_page_images/Yeni klasör/JG8A0865.jpg" alt="Ghost Mannequin Ürün 1 - 3">
+                <img src="images/ghost_product_landing_page_images/Yeni klasör/JG8A0867.jpg" alt="Ghost Mannequin Ürün 1 - 4">
+              </div>
+              <button class="slider-btn prev" onclick="changeSlide('slider-1', -1)">&#10094;</button>
+              <button class="slider-btn next" onclick="changeSlide('slider-1', 1)">&#10095;</button>
+            </div>
+            <div class="ghost-product-meta"><span>Ürün 01</span></div>
           </div>
+
+          <!-- Ürün 2 -->
           <div class="gallery-ghost-item">
-            <img src="images/ghost_product_landing_page_images/JG8A2172.jpg" alt="Ghost Mannequin Spor Giysi">
+            <div class="ghost-slider" id="slider-2">
+              <div class="slides">
+                <img src="images/ghost_product_landing_page_images/Yeni klasör - Kopya/JG8A1237.jpg" class="active" alt="Ghost Mannequin Ürün 2 - 1">
+                <img src="images/ghost_product_landing_page_images/Yeni klasör - Kopya/JG8A1240.jpg" alt="Ghost Mannequin Ürün 2 - 2">
+                <img src="images/ghost_product_landing_page_images/Yeni klasör - Kopya/JG8A1242.jpg" alt="Ghost Mannequin Ürün 2 - 3">
+                <img src="images/ghost_product_landing_page_images/Yeni klasör - Kopya/JG8A1243.jpg" alt="Ghost Mannequin Ürün 2 - 4">
+              </div>
+              <button class="slider-btn prev" onclick="changeSlide('slider-2', -1)">&#10094;</button>
+              <button class="slider-btn next" onclick="changeSlide('slider-2', 1)">&#10095;</button>
+            </div>
+            <div class="ghost-product-meta"><span>Ürün 02</span></div>
           </div>
+
+          <!-- Ürün 3 -->
           <div class="gallery-ghost-item">
-            <img src="images/ghost_product_landing_page_images/JG8A2298.jpg" alt="Ghost Mannequin Sweatshirt">
+            <div class="ghost-slider" id="slider-3">
+              <div class="slides">
+                <img src="images/ghost_product_landing_page_images/Yeni klasör - Kopya (2)/JG8A1284.jpg" class="active" alt="Ghost Mannequin Ürün 3 - 1">
+                <img src="images/ghost_product_landing_page_images/Yeni klasör - Kopya (2)/JG8A1285.jpg" alt="Ghost Mannequin Ürün 3 - 2">
+                <img src="images/ghost_product_landing_page_images/Yeni klasör - Kopya (2)/JG8A1286.jpg" alt="Ghost Mannequin Ürün 3 - 3">
+                <img src="images/ghost_product_landing_page_images/Yeni klasör - Kopya (2)/JG8A1287.jpg" alt="Ghost Mannequin Ürün 3 - 4">
+              </div>
+              <button class="slider-btn prev" onclick="changeSlide('slider-3', -1)">&#10094;</button>
+              <button class="slider-btn next" onclick="changeSlide('slider-3', 1)">&#10095;</button>
+            </div>
+            <div class="ghost-product-meta"><span>Ürün 03</span></div>
           </div>
+
+          <!-- Ürün 4 -->
           <div class="gallery-ghost-item">
-            <img src="images/ghost_product_landing_page_images/JG8A3007.jpg" alt="Ghost Mannequin Elbise">
+            <div class="ghost-slider" id="slider-4">
+              <div class="slides">
+                <img src="images/ghost_product_landing_page_images/Yeni klasör - Kopya (3)/JG8A1705.jpg" class="active" alt="Ghost Mannequin Ürün 4 - 1">
+                <img src="images/ghost_product_landing_page_images/Yeni klasör - Kopya (3)/JG8A1708.jpg" alt="Ghost Mannequin Ürün 4 - 2">
+                <img src="images/ghost_product_landing_page_images/Yeni klasör - Kopya (3)/JG8A1710.jpg" alt="Ghost Mannequin Ürün 4 - 3">
+                <img src="images/ghost_product_landing_page_images/Yeni klasör - Kopya (3)/JG8A1711.jpg" alt="Ghost Mannequin Ürün 4 - 4">
+              </div>
+              <button class="slider-btn prev" onclick="changeSlide('slider-4', -1)">&#10094;</button>
+              <button class="slider-btn next" onclick="changeSlide('slider-4', 1)">&#10095;</button>
+            </div>
+            <div class="ghost-product-meta"><span>Ürün 04</span></div>
           </div>
+
+          <!-- Ürün 5 -->
           <div class="gallery-ghost-item">
-            <img src="images/ghost_product_landing_page_images/JG8A5936.jpg" alt="Ghost Mannequin Pantolon">
+            <div class="ghost-slider" id="slider-5">
+              <div class="slides">
+                <img src="images/ghost_product_landing_page_images/Yeni klasör - Kopya (4)/JG8A1210.jpg" class="active" alt="Ghost Mannequin Ürün 5 - 1">
+                <img src="images/ghost_product_landing_page_images/Yeni klasör - Kopya (4)/JG8A1211.jpg" alt="Ghost Mannequin Ürün 5 - 2">
+                <img src="images/ghost_product_landing_page_images/Yeni klasör - Kopya (4)/JG8A1212.jpg" alt="Ghost Mannequin Ürün 5 - 3">
+                <img src="images/ghost_product_landing_page_images/Yeni klasör - Kopya (4)/JG8A1215.jpg" alt="Ghost Mannequin Ürün 5 - 4">
+                <img src="images/ghost_product_landing_page_images/Yeni klasör - Kopya (4)/JG8A1216.jpg" alt="Ghost Mannequin Ürün 5 - 5">
+              </div>
+              <button class="slider-btn prev" onclick="changeSlide('slider-5', -1)">&#10094;</button>
+              <button class="slider-btn next" onclick="changeSlide('slider-5', 1)">&#10095;</button>
+            </div>
+            <div class="ghost-product-meta"><span>Ürün 05</span></div>
           </div>
+
+          <!-- Ürün 6 -->
           <div class="gallery-ghost-item">
-            <img src="images/ghost_product_landing_page_images/JG8A5942.jpg" alt="Ghost Mannequin Üst">
+            <div class="ghost-slider" id="slider-6">
+              <div class="slides">
+                <img src="images/ghost_product_landing_page_images/Yeni klasör - Kopya (5)/JG8A1288.jpg" class="active" alt="Ghost Mannequin Ürün 6 - 1">
+                <img src="images/ghost_product_landing_page_images/Yeni klasör - Kopya (5)/JG8A1289.jpg" alt="Ghost Mannequin Ürün 6 - 2">
+              </div>
+              <button class="slider-btn prev" onclick="changeSlide('slider-6', -1)">&#10094;</button>
+              <button class="slider-btn next" onclick="changeSlide('slider-6', 1)">&#10095;</button>
+            </div>
+            <div class="ghost-product-meta"><span>Ürün 06</span></div>
           </div>
+
+          <!-- Ürün 7 -->
           <div class="gallery-ghost-item">
-            <img src="images/ghost_product_landing_page_images/JG8A1705.jpg" alt="Ghost Mannequin Dış Giyim">
+            <div class="ghost-slider" id="slider-7">
+              <div class="slides">
+                <img src="images/ghost_product_landing_page_images/Yeni klasör - Kopya (7)/JG8A1807.jpg" class="active" alt="Ghost Mannequin Ürün 7 - 1">
+                <img src="images/ghost_product_landing_page_images/Yeni klasör - Kopya (7)/JG8A1808.jpg" alt="Ghost Mannequin Ürün 7 - 2">
+                <img src="images/ghost_product_landing_page_images/Yeni klasör - Kopya (7)/JG8A1809.jpg" alt="Ghost Mannequin Ürün 7 - 3">
+                <img src="images/ghost_product_landing_page_images/Yeni klasör - Kopya (7)/JG8A1810.jpg" alt="Ghost Mannequin Ürün 7 - 4">
+              </div>
+              <button class="slider-btn prev" onclick="changeSlide('slider-7', -1)">&#10094;</button>
+              <button class="slider-btn next" onclick="changeSlide('slider-7', 1)">&#10095;</button>
+            </div>
+            <div class="ghost-product-meta"><span>Ürün 07</span></div>
           </div>
+
+          <!-- Ürün 8 -->
           <div class="gallery-ghost-item">
-            <img src="images/ghost_product_landing_page_images/JG8A1808.jpg" alt="Ghost Mannequin Takım">
+            <div class="ghost-slider" id="slider-8">
+              <div class="slides">
+                <img src="images/ghost_product_landing_page_images/Yeni klasör - Kopya (8)/JG8A2160.jpg" class="active" alt="Ghost Mannequin Ürün 8 - 1">
+                <img src="images/ghost_product_landing_page_images/Yeni klasör - Kopya (8)/JG8A2161.jpg" alt="Ghost Mannequin Ürün 8 - 2">
+                <img src="images/ghost_product_landing_page_images/Yeni klasör - Kopya (8)/JG8A2172.jpg" alt="Ghost Mannequin Ürün 8 - 3">
+                <img src="images/ghost_product_landing_page_images/Yeni klasör - Kopya (8)/JG8A2174.jpg" alt="Ghost Mannequin Ürün 8 - 4">
+              </div>
+              <button class="slider-btn prev" onclick="changeSlide('slider-8', -1)">&#10094;</button>
+              <button class="slider-btn next" onclick="changeSlide('slider-8', 1)">&#10095;</button>
+            </div>
+            <div class="ghost-product-meta"><span>Ürün 08</span></div>
+          </div>
+
+          <!-- Ürün 9 -->
+          <div class="gallery-ghost-item">
+            <div class="ghost-slider" id="slider-9">
+              <div class="slides">
+                <img src="images/ghost_product_landing_page_images/Yeni klasör - Kopya (9)/JG8A2294.jpg" class="active" alt="Ghost Mannequin Ürün 9 - 1">
+                <img src="images/ghost_product_landing_page_images/Yeni klasör - Kopya (9)/JG8A2296.jpg" alt="Ghost Mannequin Ürün 9 - 2">
+                <img src="images/ghost_product_landing_page_images/Yeni klasör - Kopya (9)/JG8A2298.jpg" alt="Ghost Mannequin Ürün 9 - 3">
+                <img src="images/ghost_product_landing_page_images/Yeni klasör - Kopya (9)/JG8A2614.jpg" alt="Ghost Mannequin Ürün 9 - 4">
+              </div>
+              <button class="slider-btn prev" onclick="changeSlide('slider-9', -1)">&#10094;</button>
+              <button class="slider-btn next" onclick="changeSlide('slider-9', 1)">&#10095;</button>
+            </div>
+            <div class="ghost-product-meta"><span>Ürün 09</span></div>
+          </div>
+
+          <!-- Ürün 10 -->
+          <div class="gallery-ghost-item">
+            <div class="ghost-slider" id="slider-10">
+              <div class="slides">
+                <img src="images/ghost_product_landing_page_images/Yeni klasör - Kopya (10)/JG8A2404.jpg" class="active" alt="Ghost Mannequin Ürün 10 - 1">
+                <img src="images/ghost_product_landing_page_images/Yeni klasör - Kopya (10)/JG8A2405.jpg" alt="Ghost Mannequin Ürün 10 - 2">
+                <img src="images/ghost_product_landing_page_images/Yeni klasör - Kopya (10)/JG8A2406.jpg" alt="Ghost Mannequin Ürün 10 - 3">
+                <img src="images/ghost_product_landing_page_images/Yeni klasör - Kopya (10)/JG8A2407.jpg" alt="Ghost Mannequin Ürün 10 - 4">
+                <img src="images/ghost_product_landing_page_images/Yeni klasör - Kopya (10)/JG8A2410.jpg" alt="Ghost Mannequin Ürün 10 - 5">
+                <img src="images/ghost_product_landing_page_images/Yeni klasör - Kopya (10)/JG8A2411.jpg" alt="Ghost Mannequin Ürün 10 - 6">
+              </div>
+              <button class="slider-btn prev" onclick="changeSlide('slider-10', -1)">&#10094;</button>
+              <button class="slider-btn next" onclick="changeSlide('slider-10', 1)">&#10095;</button>
+            </div>
+            <div class="ghost-product-meta"><span>Ürün 10</span></div>
+          </div>
+
+          <!-- Ürün 11 -->
+          <div class="gallery-ghost-item">
+            <div class="ghost-slider" id="slider-11">
+              <div class="slides">
+                <img src="images/ghost_product_landing_page_images/Yeni klasör - Kopya (11)/JG8A2423.jpg" class="active" alt="Ghost Mannequin Ürün 11 - 1">
+                <img src="images/ghost_product_landing_page_images/Yeni klasör - Kopya (11)/JG8A2424.jpg" alt="Ghost Mannequin Ürün 11 - 2">
+                <img src="images/ghost_product_landing_page_images/Yeni klasör - Kopya (11)/JG8A2425.jpg" alt="Ghost Mannequin Ürün 11 - 3">
+                <img src="images/ghost_product_landing_page_images/Yeni klasör - Kopya (11)/JG8A2426.jpg" alt="Ghost Mannequin Ürün 11 - 4">
+                <img src="images/ghost_product_landing_page_images/Yeni klasör - Kopya (11)/JG8A2430.jpg" alt="Ghost Mannequin Ürün 11 - 5">
+                <img src="images/ghost_product_landing_page_images/Yeni klasör - Kopya (11)/JG8A2432.jpg" alt="Ghost Mannequin Ürün 11 - 6">
+              </div>
+              <button class="slider-btn prev" onclick="changeSlide('slider-11', -1)">&#10094;</button>
+              <button class="slider-btn next" onclick="changeSlide('slider-11', 1)">&#10095;</button>
+            </div>
+            <div class="ghost-product-meta"><span>Ürün 11</span></div>
+          </div>
+
+          <!-- Ürün 12 -->
+          <div class="gallery-ghost-item">
+            <div class="ghost-slider" id="slider-12">
+              <div class="slides">
+                <img src="images/ghost_product_landing_page_images/Yeni klasör - Kopya (11) - Kopya/JG8A2484.jpg" class="active" alt="Ghost Mannequin Ürün 12 - 1">
+                <img src="images/ghost_product_landing_page_images/Yeni klasör - Kopya (11) - Kopya/JG8A2485.jpg" alt="Ghost Mannequin Ürün 12 - 2">
+                <img src="images/ghost_product_landing_page_images/Yeni klasör - Kopya (11) - Kopya/JG8A2488.jpg" alt="Ghost Mannequin Ürün 12 - 3">
+                <img src="images/ghost_product_landing_page_images/Yeni klasör - Kopya (11) - Kopya/JG8A2489.jpg" alt="Ghost Mannequin Ürün 12 - 4">
+                <img src="images/ghost_product_landing_page_images/Yeni klasör - Kopya (11) - Kopya/JG8A2491.jpg" alt="Ghost Mannequin Ürün 12 - 5">
+                <img src="images/ghost_product_landing_page_images/Yeni klasör - Kopya (11) - Kopya/JG8A2493-1.jpg" alt="Ghost Mannequin Ürün 12 - 6">
+              </div>
+              <button class="slider-btn prev" onclick="changeSlide('slider-12', -1)">&#10094;</button>
+              <button class="slider-btn next" onclick="changeSlide('slider-12', 1)">&#10095;</button>
+            </div>
+            <div class="ghost-product-meta"><span>Ürün 12</span></div>
+          </div>
+
+          <!-- Ürün 13 -->
+          <div class="gallery-ghost-item">
+            <div class="ghost-slider" id="slider-13">
+              <div class="slides">
+                <img src="images/ghost_product_landing_page_images/Yeni klasör - Kopya (12) - Kopya/JG8A2858.jpg" class="active" alt="Ghost Mannequin Ürün 13 - 1">
+                <img src="images/ghost_product_landing_page_images/Yeni klasör - Kopya (12) - Kopya/JG8A2860.jpg" alt="Ghost Mannequin Ürün 13 - 2">
+              </div>
+              <button class="slider-btn prev" onclick="changeSlide('slider-13', -1)">&#10094;</button>
+              <button class="slider-btn next" onclick="changeSlide('slider-13', 1)">&#10095;</button>
+            </div>
+            <div class="ghost-product-meta"><span>Ürün 13</span></div>
+          </div>
+
+          <!-- Ürün 14 -->
+          <div class="gallery-ghost-item">
+            <div class="ghost-slider" id="slider-14">
+              <div class="slides">
+                <img src="images/ghost_product_landing_page_images/Yeni klasör - Kopya (13) - Kopya/JG8A3003.jpg" class="active" alt="Ghost Mannequin Ürün 14 - 1">
+                <img src="images/ghost_product_landing_page_images/Yeni klasör - Kopya (13) - Kopya/JG8A3007.jpg" alt="Ghost Mannequin Ürün 14 - 2">
+                <img src="images/ghost_product_landing_page_images/Yeni klasör - Kopya (13) - Kopya/JG8A3010.jpg" alt="Ghost Mannequin Ürün 14 - 3">
+              </div>
+              <button class="slider-btn prev" onclick="changeSlide('slider-14', -1)">&#10094;</button>
+              <button class="slider-btn next" onclick="changeSlide('slider-14', 1)">&#10095;</button>
+            </div>
+            <div class="ghost-product-meta"><span>Ürün 14</span></div>
+          </div>
+
+          <!-- Ürün 15 -->
+          <div class="gallery-ghost-item">
+            <div class="ghost-slider" id="slider-15">
+              <div class="slides">
+                <img src="images/ghost_product_landing_page_images/Yeni klasör - Kopya (14) - Kopya/JG8A3262.jpg" class="active" alt="Ghost Mannequin Ürün 15 - 1">
+                <img src="images/ghost_product_landing_page_images/Yeni klasör - Kopya (14) - Kopya/JG8A3264.jpg" alt="Ghost Mannequin Ürün 15 - 2">
+                <img src="images/ghost_product_landing_page_images/Yeni klasör - Kopya (14) - Kopya/JG8A3265.jpg" alt="Ghost Mannequin Ürün 15 - 3">
+                <img src="images/ghost_product_landing_page_images/Yeni klasör - Kopya (14) - Kopya/JG8A3266.jpg" alt="Ghost Mannequin Ürün 15 - 4">
+              </div>
+              <button class="slider-btn prev" onclick="changeSlide('slider-15', -1)">&#10094;</button>
+              <button class="slider-btn next" onclick="changeSlide('slider-15', 1)">&#10095;</button>
+            </div>
+            <div class="ghost-product-meta"><span>Ürün 15</span></div>
+          </div>
+
+          <!-- Ürün 16 -->
+          <div class="gallery-ghost-item">
+            <div class="ghost-slider" id="slider-16">
+              <div class="slides">
+                <img src="images/ghost_product_landing_page_images/Yeni klasör - Kopya (14) - Kopya - Kopya/JG8A5935.jpg" class="active" alt="Ghost Mannequin Ürün 16 - 1">
+                <img src="images/ghost_product_landing_page_images/Yeni klasör - Kopya (14) - Kopya - Kopya/JG8A5936.jpg" alt="Ghost Mannequin Ürün 16 - 2">
+              </div>
+              <button class="slider-btn prev" onclick="changeSlide('slider-16', -1)">&#10094;</button>
+              <button class="slider-btn next" onclick="changeSlide('slider-16', 1)">&#10095;</button>
+            </div>
+            <div class="ghost-product-meta"><span>Ürün 16</span></div>
+          </div>
+
+          <!-- Ürün 17 -->
+          <div class="gallery-ghost-item">
+            <div class="ghost-slider" id="slider-17">
+              <div class="slides">
+                <img src="images/ghost_product_landing_page_images/Yeni klasör - Kopya (15) - Kopya - Kopya/JG8A5942.jpg" class="active" alt="Ghost Mannequin Ürün 17 - 1">
+                <img src="images/ghost_product_landing_page_images/Yeni klasör - Kopya (15) - Kopya - Kopya/JG8A5943.jpg" alt="Ghost Mannequin Ürün 17 - 2">
+              </div>
+              <button class="slider-btn prev" onclick="changeSlide('slider-17', -1)">&#10094;</button>
+              <button class="slider-btn next" onclick="changeSlide('slider-17', 1)">&#10095;</button>
+            </div>
+            <div class="ghost-product-meta"><span>Ürün 17</span></div>
+          </div>
+
+          <!-- Ürün 18 -->
+          <div class="gallery-ghost-item">
+            <div class="ghost-slider" id="slider-18">
+              <div class="slides">
+                <img src="images/ghost_product_landing_page_images/Yeni klasör - Kopya (16) - Kopya - Kopya/JG8A6003.jpg" class="active" alt="Ghost Mannequin Ürün 18 - 1">
+                <img src="images/ghost_product_landing_page_images/Yeni klasör - Kopya (16) - Kopya - Kopya/JG8A6005.jpg" alt="Ghost Mannequin Ürün 18 - 2">
+              </div>
+              <button class="slider-btn prev" onclick="changeSlide('slider-18', -1)">&#10094;</button>
+              <button class="slider-btn next" onclick="changeSlide('slider-18', 1)">&#10095;</button>
+            </div>
+            <div class="ghost-product-meta"><span>Ürün 18</span></div>
+          </div>
+
+          <!-- Ürün 19 -->
+          <div class="gallery-ghost-item">
+            <div class="ghost-slider" id="slider-19">
+              <div class="slides">
+                <img src="images/ghost_product_landing_page_images/Yeni klasör - Kopya (17) - Kopya - Kopya/JG8A6636.jpg" class="active" alt="Ghost Mannequin Ürün 19 - 1">
+                <img src="images/ghost_product_landing_page_images/Yeni klasör - Kopya (17) - Kopya - Kopya/JG8A6637.jpg" alt="Ghost Mannequin Ürün 19 - 2">
+              </div>
+              <button class="slider-btn prev" onclick="changeSlide('slider-19', -1)">&#10094;</button>
+              <button class="slider-btn next" onclick="changeSlide('slider-19', 1)">&#10095;</button>
+            </div>
+            <div class="ghost-product-meta"><span>Ürün 19</span></div>
           </div>
         </div>
       </div>
@@ -452,6 +779,33 @@
     <img src="images/logos/logo_white_text.png" alt="Ajans Kivi Logo" style="height: 48px; width: auto; display: block; margin: 0 auto 1.5rem;">
     <p style="color: var(--text-muted); font-size: 0.8rem;">© 2024 AJANS KİVİ. Tüm Hakları Saklıdır.</p>
   </footer>
+
+  <script>
+    function changeSlide(sliderId, direction) {
+      const slider = document.getElementById(sliderId);
+      const images = slider.querySelectorAll('.slides img');
+      let activeIndex = -1;
+
+      images.forEach((img, idx) => {
+        if (img.classList.contains('active')) {
+          activeIndex = idx;
+        }
+      });
+
+      if (activeIndex !== -1) {
+        images[activeIndex].classList.remove('active');
+        let newIndex = activeIndex + direction;
+
+        if (newIndex >= images.length) {
+          newIndex = 0;
+        } else if (newIndex < 0) {
+          newIndex = images.length - 1;
+        }
+
+        images[newIndex].classList.add('active');
+      }
+    }
+  </script>
 
 </body>
 </html>
