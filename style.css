@@ -522,6 +522,10 @@ nav.scrolled {
     grid-template-columns: 1fr;
     padding: 2.5rem;
   }
+  #contact > .container > div {
+    grid-template-columns: 1fr !important;
+    gap: 3rem !important;
+  }
 }
 
 @media (max-width: 768px) {
