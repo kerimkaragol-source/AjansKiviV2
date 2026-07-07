@@ -311,6 +311,47 @@
       letter-spacing: 0.1em;
       font-weight: 500;
       z-index: 5;
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+    }
+
+    .swipe-info {
+      font-size: 0.65rem;
+      color: var(--brand);
+      text-transform: lowercase;
+      letter-spacing: 0.05em;
+      opacity: 0.8;
+      display: inline-block;
+    }
+
+    /* Swipe hint overlay for mobile */
+    .swipe-hint-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 0.85rem;
+      z-index: 8;
+      pointer-events: none;
+      transition: 0.4s;
+      opacity: 0;
+    }
+
+    @media (max-width: 768px) {
+      .swipe-hint-overlay {
+        opacity: 1;
+        animation: fadeOutHint 2.5s forwards;
+      }
+    }
+
+    @keyframes fadeOutHint {
+      0% { opacity: 1; }
+      80% { opacity: 1; }
+      100% { opacity: 0; }
     }
 
     @media (max-width: 1024px) {
@@ -443,8 +484,9 @@
               </div>
               <button class="slider-btn prev" onclick="changeSlide('slider-1', -1)">&#10094;</button>
               <button class="slider-btn next" onclick="changeSlide('slider-1', 1)">&#10095;</button>
+              <div class="swipe-hint-overlay"><span>← Kaydırınız →</span></div>
             </div>
-            <div class="ghost-product-meta"><span>Dökümlü Deri Ceket</span></div>
+            <div class="ghost-product-meta"><span>Deri Ceket</span><span class="swipe-info">kaydırınız</span></div>
           </div>
 
           <!-- Ürün 2 -->
@@ -458,8 +500,9 @@
               </div>
               <button class="slider-btn prev" onclick="changeSlide('slider-2', -1)">&#10094;</button>
               <button class="slider-btn next" onclick="changeSlide('slider-2', 1)">&#10095;</button>
+              <div class="swipe-hint-overlay"><span>← Kaydırınız →</span></div>
             </div>
-            <div class="ghost-product-meta"><span>Kapüşonlu Sweatshirt</span></div>
+            <div class="ghost-product-meta"><span>Fermuarlı Kadın Sweatshirt</span><span class="swipe-info">kaydırınız</span></div>
           </div>
 
           <!-- Ürün 3 -->
@@ -473,8 +516,9 @@
               </div>
               <button class="slider-btn prev" onclick="changeSlide('slider-3', -1)">&#10094;</button>
               <button class="slider-btn next" onclick="changeSlide('slider-3', 1)">&#10095;</button>
+              <div class="swipe-hint-overlay"><span>← Kaydırınız →</span></div>
             </div>
-            <div class="ghost-product-meta"><span>Örme Kışlık Hırka</span></div>
+            <div class="ghost-product-meta"><span>Taba Süet Ceket</span><span class="swipe-info">kaydırınız</span></div>
           </div>
 
           <!-- Ürün 4 -->
@@ -488,8 +532,9 @@
               </div>
               <button class="slider-btn prev" onclick="changeSlide('slider-4', -1)">&#10094;</button>
               <button class="slider-btn next" onclick="changeSlide('slider-4', 1)">&#10095;</button>
+              <div class="swipe-hint-overlay"><span>← Kaydırınız →</span></div>
             </div>
-            <div class="ghost-product-meta"><span>Kaşe Kaban</span></div>
+            <div class="ghost-product-meta"><span>Siyah Yağmurluk Parka</span><span class="swipe-info">kaydırınız</span></div>
           </div>
 
           <!-- Ürün 5 -->
@@ -504,8 +549,9 @@
               </div>
               <button class="slider-btn prev" onclick="changeSlide('slider-5', -1)">&#10094;</button>
               <button class="slider-btn next" onclick="changeSlide('slider-5', 1)">&#10095;</button>
+              <div class="swipe-hint-overlay"><span>← Kaydırınız →</span></div>
             </div>
-            <div class="ghost-product-meta"><span>V Yaka Kazak</span></div>
+            <div class="ghost-product-meta"><span>Tricot Kazak</span><span class="swipe-info">kaydırınız</span></div>
           </div>
 
           <!-- Ürün 6 -->
@@ -517,8 +563,9 @@
               </div>
               <button class="slider-btn prev" onclick="changeSlide('slider-6', -1)">&#10094;</button>
               <button class="slider-btn next" onclick="changeSlide('slider-6', 1)">&#10095;</button>
+              <div class="swipe-hint-overlay"><span>← Kaydırınız →</span></div>
             </div>
-            <div class="ghost-product-meta"><span>Bisiklet Yaka Triko</span></div>
+            <div class="ghost-product-meta"><span>Desenli Crop Hırka</span><span class="swipe-info">kaydırınız</span></div>
           </div>
 
           <!-- Ürün 7 -->
@@ -532,8 +579,9 @@
               </div>
               <button class="slider-btn prev" onclick="changeSlide('slider-7', -1)">&#10094;</button>
               <button class="slider-btn next" onclick="changeSlide('slider-7', 1)">&#10095;</button>
+              <div class="swipe-hint-overlay"><span>← Kaydırınız →</span></div>
             </div>
-            <div class="ghost-product-meta"><span>Denim Gömlek</span></div>
+            <div class="ghost-product-meta"><span>Kadın Şort</span><span class="swipe-info">kaydırınız</span></div>
           </div>
 
           <!-- Ürün 8 -->
@@ -547,8 +595,9 @@
               </div>
               <button class="slider-btn prev" onclick="changeSlide('slider-8', -1)">&#10094;</button>
               <button class="slider-btn next" onclick="changeSlide('slider-8', 1)">&#10095;</button>
+              <div class="swipe-hint-overlay"><span>← Kaydırınız →</span></div>
             </div>
-            <div class="ghost-product-meta"><span>Slim-Fit Blazer Ceket</span></div>
+            <div class="ghost-product-meta"><span>Kapüşonlu Şişme Yelek</span><span class="swipe-info">kaydırınız</span></div>
           </div>
 
           <!-- Ürün 9 -->
@@ -562,8 +611,9 @@
               </div>
               <button class="slider-btn prev" onclick="changeSlide('slider-9', -1)">&#10094;</button>
               <button class="slider-btn next" onclick="changeSlide('slider-9', 1)">&#10095;</button>
+              <div class="swipe-hint-overlay"><span>← Kaydırınız →</span></div>
             </div>
-            <div class="ghost-product-meta"><span>Spor Sweatshirt</span></div>
+            <div class="ghost-product-meta"><span>Desenli Sweatshirt</span><span class="swipe-info">kaydırınız</span></div>
           </div>
 
           <!-- Ürün 10 -->
@@ -579,8 +629,9 @@
               </div>
               <button class="slider-btn prev" onclick="changeSlide('slider-10', -1)">&#10094;</button>
               <button class="slider-btn next" onclick="changeSlide('slider-10', 1)">&#10095;</button>
+              <div class="swipe-hint-overlay"><span>← Kaydırınız →</span></div>
             </div>
-            <div class="ghost-product-meta"><span>Klasik Erkek Gömlek</span></div>
+            <div class="ghost-product-meta"><span>Bisiklet Yaka T-Shirt</span><span class="swipe-info">kaydırınız</span></div>
           </div>
 
           <!-- Ürün 11 -->
@@ -596,8 +647,9 @@
               </div>
               <button class="slider-btn prev" onclick="changeSlide('slider-11', -1)">&#10094;</button>
               <button class="slider-btn next" onclick="changeSlide('slider-11', 1)">&#10095;</button>
+              <div class="swipe-hint-overlay"><span>← Kaydırınız →</span></div>
             </div>
-            <div class="ghost-product-meta"><span>Polo Yaka T-Shirt</span></div>
+            <div class="ghost-product-meta"><span>Polo Yaka T-Shirt</span><span class="swipe-info">kaydırınız</span></div>
           </div>
 
           <!-- Ürün 12 -->
@@ -613,8 +665,9 @@
               </div>
               <button class="slider-btn prev" onclick="changeSlide('slider-12', -1)">&#10094;</button>
               <button class="slider-btn next" onclick="changeSlide('slider-12', 1)">&#10095;</button>
+              <div class="swipe-hint-overlay"><span>← Kaydırınız →</span></div>
             </div>
-            <div class="ghost-product-meta"><span>Oversize T-Shirt</span></div>
+            <div class="ghost-product-meta"><span>Baskılı Crop T-Shirt</span><span class="swipe-info">kaydırınız</span></div>
           </div>
 
           <!-- Ürün 13 -->
@@ -626,8 +679,9 @@
               </div>
               <button class="slider-btn prev" onclick="changeSlide('slider-13', -1)">&#10094;</button>
               <button class="slider-btn next" onclick="changeSlide('slider-13', 1)">&#10095;</button>
+              <div class="swipe-hint-overlay"><span>← Kaydırınız →</span></div>
             </div>
-            <div class="ghost-product-meta"><span>Yazlık Keten Pantolon</span></div>
+            <div class="ghost-product-meta"><span>Keten Şort</span><span class="swipe-info">kaydırınız</span></div>
           </div>
 
           <!-- Ürün 14 -->
@@ -640,8 +694,9 @@
               </div>
               <button class="slider-btn prev" onclick="changeSlide('slider-14', -1)">&#10094;</button>
               <button class="slider-btn next" onclick="changeSlide('slider-14', 1)">&#10095;</button>
+              <div class="swipe-hint-overlay"><span>← Kaydırınız →</span></div>
             </div>
-            <div class="ghost-product-meta"><span>Kloş Kesim Elbise</span></div>
+            <div class="ghost-product-meta"><span>Abiye Elbise</span><span class="swipe-info">kaydırınız</span></div>
           </div>
 
           <!-- Ürün 15 -->
@@ -655,8 +710,9 @@
               </div>
               <button class="slider-btn prev" onclick="changeSlide('slider-15', -1)">&#10094;</button>
               <button class="slider-btn next" onclick="changeSlide('slider-15', 1)">&#10095;</button>
+              <div class="swipe-hint-overlay"><span>← Kaydırınız →</span></div>
             </div>
-            <div class="ghost-product-meta"><span>Deri Yağmurluk</span></div>
+            <div class="ghost-product-meta"><span>Klasik Takım Elbise</span><span class="swipe-info">kaydırınız</span></div>
           </div>
 
           <!-- Ürün 16 -->
@@ -668,8 +724,9 @@
               </div>
               <button class="slider-btn prev" onclick="changeSlide('slider-16', -1)">&#10094;</button>
               <button class="slider-btn next" onclick="changeSlide('slider-16', 1)">&#10095;</button>
+              <div class="swipe-hint-overlay"><span>← Kaydırınız →</span></div>
             </div>
-            <div class="ghost-product-meta"><span>Kargo Cepli Pantolon</span></div>
+            <div class="ghost-product-meta"><span>E-Ticaret Erkek Pantolon</span><span class="swipe-info">kaydırınız</span></div>
           </div>
 
           <!-- Ürün 17 -->
@@ -681,8 +738,9 @@
               </div>
               <button class="slider-btn prev" onclick="changeSlide('slider-17', -1)">&#10094;</button>
               <button class="slider-btn next" onclick="changeSlide('slider-17', 1)">&#10095;</button>
+              <div class="swipe-hint-overlay"><span>← Kaydırınız →</span></div>
             </div>
-            <div class="ghost-product-meta"><span>Crop Top Spor Üst</span></div>
+            <div class="ghost-product-meta"><span>Beli Lastikli Eşofman Altı</span><span class="swipe-info">kaydırınız</span></div>
           </div>
 
           <!-- Ürün 18 -->
@@ -694,8 +752,9 @@
               </div>
               <button class="slider-btn prev" onclick="changeSlide('slider-18', -1)">&#10094;</button>
               <button class="slider-btn next" onclick="changeSlide('slider-18', 1)">&#10095;</button>
+              <div class="swipe-hint-overlay"><span>← Kaydırınız →</span></div>
             </div>
-            <div class="ghost-product-meta"><span>Pilili Etek</span></div>
+            <div class="ghost-product-meta"><span>Spor Şort Etek</span><span class="swipe-info">kaydırınız</span></div>
           </div>
 
           <!-- Ürün 19 -->
@@ -707,8 +766,9 @@
               </div>
               <button class="slider-btn prev" onclick="changeSlide('slider-19', -1)">&#10094;</button>
               <button class="slider-btn next" onclick="changeSlide('slider-19', 1)">&#10095;</button>
+              <div class="swipe-hint-overlay"><span>← Kaydırınız →</span></div>
             </div>
-            <div class="ghost-product-meta"><span>Tekstil Sweatpant</span></div>
+            <div class="ghost-product-meta"><span>Kadın Boxer Külot</span><span class="swipe-info">kaydırınız</span></div>
           </div>
         </div>
       </div>
@@ -805,6 +865,42 @@
         images[newIndex].classList.add('active');
       }
     }
+
+    // Touch Swipe Event Binding
+    document.addEventListener("DOMContentLoaded", () => {
+      const sliders = document.querySelectorAll(".ghost-slider");
+
+      sliders.forEach(slider => {
+        let startX = 0;
+        let endX = 0;
+        const sliderId = slider.id;
+
+        slider.addEventListener("touchstart", (e) => {
+          startX = e.touches[0].clientX;
+        }, { passive: true });
+
+        slider.addEventListener("touchmove", (e) => {
+          endX = e.touches[0].clientX;
+        }, { passive: true });
+
+        slider.addEventListener("touchend", () => {
+          const diff = startX - endX;
+          // Swipe sensitivity threshold (50px)
+          if (Math.abs(diff) > 50) {
+            if (diff > 0) {
+              // Swipe Left -> Next
+              changeSlide(sliderId, 1);
+            } else {
+              // Swipe Right -> Prev
+              changeSlide(sliderId, -1);
+            }
+          }
+          // Reset
+          startX = 0;
+          endX = 0;
+        });
+      });
+    });
   </script>
 
 </body>
