@@ -7,6 +7,7 @@ export default defineConfig({
       input: {
         main: resolve(__dirname, 'index.html'),
         portfolio: resolve(__dirname, 'portfolio.html'),
+        ghost: resolve(__dirname, 'ghost-mannequin.html'),
       },
     },
   },
